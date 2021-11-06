@@ -1,6 +1,10 @@
 # dvc-NLP-simple-usecase
 DVC NLP Project
 
+## Reference repository:
+[official reference repository](https://github.com/iterative/example-get-started)
+
+
 ## STEPS -
 
 ### STEP 01- Create a repository by using template repository
