@@ -30,9 +30,16 @@ def main(config_path, params_path):
 
     artifacts = config["artifacts"]
     prepared_data_dir_path = os.path.join(artifacts["ARTIFACTS_DIR"], artifacts["PREPARED_DATA"])
-
     create_directories([prepared_data_dir_path])
 
+    train_data_path = os.path.join(prepared_data_dir_path, artifacts["TRAIN_DATA"])
+    test_data_path = os.path.join(prepared_data_dir_path, artifacts["TEST_DATA"])
+
+    with open (input_data, encoding="utf8") as fd_in:
+        with open(train_data_path, "w", encoding="utf8") as fd_out_train:
+            with open(test_data_path, "w", encoding="utf8") as fd_out_test:
+                pass
+                # process_data(fd_in, fd_out_train, fd_out_test, "<python>", split)
 
 
 
