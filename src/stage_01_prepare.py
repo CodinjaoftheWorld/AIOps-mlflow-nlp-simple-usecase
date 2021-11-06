@@ -4,6 +4,7 @@ import shutil
 from tqdm import tqdm
 import logging
 from src.utils.common import read_yaml, create_directories
+from src.utils.data_mgmt import process_posts
 import random
 
 STAGE = "one"
@@ -38,8 +39,7 @@ def main(config_path, params_path):
     with open (input_data, encoding="utf8") as fd_in:
         with open(train_data_path, "w", encoding="utf8") as fd_out_train:
             with open(test_data_path, "w", encoding="utf8") as fd_out_test:
-                pass
-                # process_data(fd_in, fd_out_train, fd_out_test, "<python>", split)
+                process_posts(fd_in, fd_out_train, fd_out_test, "<python>", split)
 
 
 
