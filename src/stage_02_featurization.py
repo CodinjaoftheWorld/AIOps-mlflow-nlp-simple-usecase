@@ -6,6 +6,7 @@ import logging
 from src.utils.common import read_yaml, create_directories, get_df
 import pandas as pd
 import numpy as np
+from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 
 STAGE = "two"
 
