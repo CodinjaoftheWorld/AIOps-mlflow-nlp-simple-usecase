@@ -38,13 +38,13 @@ def main(config_path):
     X = matrix[:, 2:]
 
     predictions_by_class = model.predict_proba(X)
-    predictions = predictions_by_class[: 1]
+    predictions = predictions_by_class[:, 1]
 
     PRC_json_path = config["plots"]["PRC"]
     ROC_json_path = config["plots"]["ROC"]
     scored_json_path = config["metrics"]["SCORES"]
    
-    avg_prec = metrics.average_precision_score(labels, predictions)
+    avg_prec = metrics.average_precision_score(labels, predictions)                                                                                                                                                                                                                                 
     roc_auc = metrics.roc_auc_score(labels, predictions) 
 
     scores = {
