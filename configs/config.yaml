@@ -11,8 +11,15 @@ artifacts:
   MODEL_DIR: model
   MODEL_NAME: model.pkl
 
-
 source_data:
   data_dir: data
   data_file: data.xml
+
+metrics:
+  SCORES: scores.json
+
+plots:
+  PRC: prc.json
+  ROC: roc.json
+
   
