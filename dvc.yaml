@@ -44,3 +44,26 @@ stages:
       - train.min_split
     outs:
       - artifacts/model/model.pkl
+
+  evaluate:
+    cmd: python src/stage_04_evaluate.py --config=configs/config.yaml
+    deps:
+      - src/stage_04_evaluate.py
+      - artifacts/features/test.pkl
+      - artifacts/model/model.pkl
+      - configs/config.yaml
+      - src/utils/common.py
+    metrics:
+      - scores.json:
+          cache: False
+    plots: 
+      - prc.json:
+          cache: False
+          x: recall
+          y: precision
+      - roc.json:
+          cache: False
+          x: fpr
+          y: tpr
+  run_plots_command:
+    cmd: dvc plots diff
