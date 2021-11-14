@@ -7,7 +7,7 @@ Scipy
 pyyaml
 scikit-learn
 lxml
-
+importlib-metadata==4.8.2
 
 
 ### local packages -
