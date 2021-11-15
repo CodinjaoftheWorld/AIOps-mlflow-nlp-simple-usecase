@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
   deploy-runner:
-    run-on: [ubuntu-latest]
+    runs-on: [ubuntu-latest]
     steps:
       - uses: iterative/setup-cml@v1
       - uses: actions/checkout@v2
@@ -32,6 +32,8 @@ jobs:
         run: |
           # Your ML workflow commands
           pip install --upgrade pip
+          pip install -r requirements.txt
+          dvc repro -v ## v >>> verbose
           echo "# REPORTS" >> report.md
           echo "## metrics" >> report.md
           cat scores.json >> report.md
