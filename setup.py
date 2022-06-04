@@ -4,7 +4,7 @@ with open("README.md", "r", encoding="utf-8") as f:
     long_description = f.read()
 
 ## edit below variables as per your requirements -
-REPO_NAME = "DVC-NLP-SIMPLE-USECASE"
+REPO_NAME = "AIOps-mlflow-nlp-simple-usecase"
 AUTHOR_USER_NAME = "CodinjaoftheWorld"
 SRC_REPO = "src"
 LIST_OF_REQUIREMENTS = []
@@ -14,7 +14,7 @@ setup(
     name=SRC_REPO,
     version="0.0.1",
     author="CodinjaoftheWorld",
-    description="A small package for DVC-NLP",
+    description="A small package for mlflow-NLP",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url=f"https://github.com/{AUTHOR_USER_NAME}/{REPO_NAME}",
