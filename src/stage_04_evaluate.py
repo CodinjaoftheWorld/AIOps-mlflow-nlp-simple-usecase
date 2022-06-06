@@ -9,6 +9,7 @@ import numpy as np
 import sklearn.metrics as metrics
 import json  
 import math
+import mlflow
 
 
 STAGE = "four"
@@ -47,6 +48,9 @@ def main(config_path):
     avg_prec = metrics.average_precision_score(labels, predictions)                                                                                                                                                                                                                                 
     roc_auc = metrics.roc_auc_score(labels, predictions) 
 
+    mlflow.log_metric("avg_prec", avg_prec)
+    mlflow.log_metric("roc_auc", roc_auc)
+
     scores = {
         "avg_prec": avg_prec,
         "roc_auc": roc_auc
@@ -80,6 +84,7 @@ def main(config_path):
 
     save_json(ROC_json_path, roc_data)
 
+    mlflow.sklearn.eval_and_log_metrics(model, predictions, labels, prefix="eval_")
 
 if __name__ == '__main__':
     args = argparse.ArgumentParser()
