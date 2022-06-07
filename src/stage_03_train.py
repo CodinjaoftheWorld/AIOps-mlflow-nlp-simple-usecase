@@ -19,6 +19,9 @@ logging.basicConfig(
     )
 
 def train(config_path, params_path):
+    
+    mlflow.set_tracking_uri("http://127.0.0.1:1234")
+
     config = read_yaml(config_path)
     params = read_yaml(params_path)
 
@@ -56,7 +59,7 @@ def train(config_path, params_path):
     )          
     model.fit(X,labels)
     # joblib.dump(model, model_path)
-    mlflow.sklearn.log_model(model, "model")
+    mlflow.sklearn.log_model(model, "model", registered_model_name="model_one")
 
 
 
